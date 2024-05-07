@@ -78,9 +78,9 @@ function QuizForm() {
           {questions.map((question) => (
             <div className="question-container" key={question.id}>
               <math-field
-                class="question-input w-full border-2 border-blue-400"
+                className="question-input w-full border-2 border-blue-400"
                 ref={mf}
-                value={question.title}
+                latex={question.title} // Use 'latex' instead of 'value'
                 onInput={(evt: ChangeEvent<MathfieldElement>) =>
                   handleQuestionSubmit(question.id, evt.target.value)
                 }
