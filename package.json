@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "mathjax3-react": "^1.2.0",
+    "mathlive": "^0.98.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-mathquill": "^1.0.3",

@@ -1,5 +1,5 @@
 // quizStore.ts
-import { create, SetState } from "zustand";
+import { create } from "zustand";
 
 export interface Option {
   id: number;
@@ -24,8 +24,9 @@ interface QuizStore {
   setOptionTitle: (questionId: number, optionId: number, title: string) => void;
   setCorrectOption: (questionId: number, correctOptionId: number) => void;
 }
+// : SetState<QuizStore>
 
-const useQuizStore = create<QuizStore>((set: SetState<QuizStore>) => ({
+const useQuizStore = create<QuizStore>((set) => ({
   questions: [
     {
       id: 1,
