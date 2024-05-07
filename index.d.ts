@@ -1,10 +1,13 @@
 import { MathfieldElement } from "mathlive";
+interface MathFieldProps extends React.HTMLAttributes<MathfieldElement> {
+  className?: string;
+}
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       "math-field": React.DetailedHTMLProps<
-        React.HTMLAttributes<MathfieldElement> & { latex?: string },
+        React.HTMLAttributes<MathFieldProps, MathfieldElement>,
         MathfieldElement
       >;
     }

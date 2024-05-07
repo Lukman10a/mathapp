@@ -1,6 +1,6 @@
 // QuizForm.tsx
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
-import { EditableMathField } from "react-mathquill";
+// import { EditableMathField } from "react-mathquill";
 import "mathlive";
 
 import { MathfieldElement } from "mathlive";
@@ -78,9 +78,9 @@ function QuizForm() {
           {questions.map((question) => (
             <div className="question-container" key={question.id}>
               <math-field
-                className="question-input w-full border-2 border-blue-400"
+                class="question-input w-full border-2 border-blue-400"
                 ref={mf}
-                latex={question.title} // Use 'latex' instead of 'value'
+                value={question.title}
                 onInput={(evt: ChangeEvent<MathfieldElement>) =>
                   handleQuestionSubmit(question.id, evt.target.value)
                 }
@@ -96,7 +96,19 @@ function QuizForm() {
               <div className="options-container">
                 {question.options.map((option) => (
                   <div className="option-container" key={option.id}>
-                    <EditableMathField
+                    <math-field
+                      class="option-input w-full border-2 border-blue-400"
+                      ref={mf}
+                      value={option.title}
+                      onInput={(evt: ChangeEvent<MathfieldElement>) =>
+                        handleOptionSubmit(
+                          question.id,
+                          option.id,
+                          evt.target.value
+                        )
+                      }
+                    />
+                    {/* <EditableMathField
                       className="option-input"
                       latex={option.title}
                       onChange={(mathField) => {
@@ -106,7 +118,7 @@ function QuizForm() {
                           mathField.latex()
                         );
                       }}
-                    />
+                    /> */}
                     <div className="flex  gap-3">
                       <button
                         type="button"
